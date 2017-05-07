@@ -5,22 +5,23 @@ import { connect } from 'react-redux';
 import { appSelector } from './AppSelector';
 import { changeName } from './AppActions';
 
-const App = React.createClass({
-    onClick() {
-        this.props.dispatch(changeName('jaha'));
-    },
-    render() {
+class App extends React.Component {
+  onClick() {
+    this.props.dispatch(changeName('jaha'));
+  }
 
-        return (
-            <div onClick={this.onClick}>
-                {`Hello ${this.props.name}`}
-            </div>
-        )
-    }
-});
+  render() {
+
+    return (
+      <div onClick={this.onClick}>
+        {`Hello ${this.props.name}`}
+      </div>
+    )
+  }
+}
 
 const ConnectedApp = connect(
-    appSelector
+  appSelector
 )(App);
 
 export default ConnectedApp;
